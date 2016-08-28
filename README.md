@@ -1,4 +1,4 @@
-biocoder
-========
+biocoder-server
+===============
 
-simple yet flexible self-hosted alternative to TopCoder or AtCoder.
+BioCoder is simple yet flexible self-hosted alternative to TopCoder or AtCoder.
