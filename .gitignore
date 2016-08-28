@@ -1,0 +1,105 @@
+#
+# (c) 2016 biocoder developers
+#
+# This file is part of biocoder,
+# released under Apache License Version 2.0 (http://www.apache.org/licenses/LICENCE).
+#
+
+# ================================================================================
+# OS X
+# ================================================================================
+
+.Spotlight-V100/
+.Trashes/
+Temporary Items/
+
+._*
+.AppleDB
+.AppleDesktop
+.AppleDouble
+.DS_Store
+.LSOverride
+.apdisk
+Icon
+
+
+# ================================================================================
+# Linux
+# ================================================================================
+
+*~
+.directory
+
+
+# ================================================================================
+# Windows
+# ================================================================================
+
+$RECYCLE.BIN/
+
+*.lnk
+Desktop.ini
+Thumbs.db
+ehthumbs.db
+
+
+# ================================================================================
+# Node
+# ================================================================================
+
+node_modules
+
+
+# ================================================================================
+# Python
+# ================================================================================
+
+*.egg-info/
+.eggs/
+__pycache__/
+build/
+develop-eggs/
+dist/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+
+*.egg
+*.mo
+*.pot
+*.py[cod]
+.Python
+.coverage
+pip-delete-this-directory.txt
+pip-log.txt
+
+
+# ================================================================================
+# IntelliJ
+# ================================================================================
+
+.idea/
+*.iml
+*.ipr
+*.iws
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+
+
+# ================================================================================
+# project
+# ================================================================================
+
+.cache/
+temporary/
+
+00*.py
+biocoder/version.py
+packaging/docker/*.whl
+packaging/docker/create-superuser.py
+packaging/docker/env
+packaging/docker/requirements-production.txt

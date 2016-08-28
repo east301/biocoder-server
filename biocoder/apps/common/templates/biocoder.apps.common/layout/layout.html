@@ -1,0 +1,97 @@
+{% comment %}
+#
+# (c) 2016 biocoder developers
+#
+# This file is part of biocoder,
+# released under Apache License Version 2.0 (http://www.apache.org/licenses/LICENCE).
+#
+{% endcomment %}
+
+
+{% load i18n static %}
+{% load compress gravatar %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block meta %}{% endblock %}
+    <!-- css -->
+    {% compress css %}
+      <link rel="stylesheet" href="{% static 'bootstrap+bootswatch/css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+      {% block common_css %}{% endblock %}
+    {% endcompress %}
+    {% block css %}{% endblock %}
+    <!-- /css -->
+    <title>biocoder</title>
+    {% block extra_head %}{% endblock %}
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+            <span class="sr-only">{% trans 'Toggle navigation' %}</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'management-get-welcome-page' %}">tonpeifes</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav pull-right">
+            {% if user.is_authenticated %}
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  {% gravatar user.email 24 %} {{ user.username }} <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="#">
+                      {% trans 'Logout' %}
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            {% else %}
+              <li>
+                <a href="#">
+                  {% trans 'Login' %}
+                </a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {% block container %}
+      <div class="container">
+        {% block breadcrumbs_container %}
+          <ol class="breadcrumb">
+            {% block breadcrumbs %}{% endblock %}
+          </ol>
+        {% endblock %}
+
+        {% block content %}
+          <div class="page-header">
+            <h1>Hello World</h1>
+          </div>
+        {% endblock %}
+      </div>
+    {% endblock %}
+
+    <!-- js -->
+    {% compress js %}
+      <script src="{% static 'jquery/jquery.min.js' %}"></script>
+      <script src="{% static 'bootstrap+bootswatch/js/bootstrap.min.js' %}"></script>
+      {% block common_js %}{% endblock %}
+    {% endcompress %}
+    {% block js %}{% endblock %}
+    <!-- /js -->
+  </body>
+</html>

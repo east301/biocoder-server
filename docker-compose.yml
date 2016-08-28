@@ -1,0 +1,71 @@
+#
+# (c) 2016 biocoder developers
+#
+# This file is part of biocoder,
+# released under Apache License Version 2.0 (http://www.apache.org/licenses/LICENCE).
+#
+# ====
+#
+# docker compose for biocoder-server deployment
+#
+
+frontend:
+  image: east301/biocoder-server
+  command: /opt/biocoder/docker/run-frontend.sh
+  env_file:
+    - ./env
+  ports:
+    - "8080:8080"
+  links:
+    - mysql
+    - redis
+  volumes:
+    - "./config:/etc/biocoder:ro"
+    - "./media:/opt/biocoder/media"
+    - "./static:/opt/biocoder/static"
+
+channel-worker:
+  image: east301/biocoder-server
+  command: /opt/biocoder/docker/run-channel-worker.sh
+  env_file:
+    - ./env
+  links:
+    - mysql
+    - redis
+  volumes:
+    - "./config:/etc/biocoder:ro"
+    - "./media:/opt/biocoder/media"
+    - "./static:/opt/biocoder/static"
+
+job-worker:
+  image: east301/biocoder-server
+  command: /opt/biocoder/docker/run-job-worker.sh
+  env_file:
+    - ./env
+  links:
+    - mysql
+    - redis
+  volumes:
+    - "./config:/etc/biocoder:ro"
+    - "./media:/opt/biocoder/media"
+    - "./static:/opt/biocoder/static"
+
+mysql:
+  image: mysql
+  command:
+    - --character-set-server=utf8mb4
+    - --collation-server=utf8mb4_unicode_ci
+    - --skip-character-set-client-handshake
+  env_file:
+    - ./env
+  volumes:
+    - "./config:/etc/biocoder:ro"
+    - "./mysql:/var/lib/mysql"
+
+redis:
+  image: redis
+  env_file:
+    - ./env
+  volumes:
+    - "./config:/etc/biocoder:ro"
+    - "./redis:/data"

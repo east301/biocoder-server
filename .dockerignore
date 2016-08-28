@@ -1,0 +1,14 @@
+#
+# (c) 2016 biocoder developers
+#
+# This file is part of biocoder,
+# released under Apache License Version 2.0 (http://www.apache.org/licenses/LICENCE).
+#
+
+biocoder/
+biocoder.egg-info/
+build/
+docs/
+node_modules/
+temporary/
+tools/

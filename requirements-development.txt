@@ -1,0 +1,19 @@
+#
+# (c) 2016 biocoder developers
+#
+# This file is part of biocoder,
+# released under Apache License Version 2.0 (http://www.apache.org/licenses/LICENCE).
+#
+
+Jinja2==2.8
+coverage==4.0.3
+django-debug-toolbar==1.5
+flake8==2.5.2
+ipython==4.1.1
+mixer==5.4.1
+pytest-cov==2.2.1
+pytest-django==2.9.1
+pytest-mock==0.10.1
+pytest-pythonpath==0.7
+pytest==2.8.7
+redislite==3.0.296
